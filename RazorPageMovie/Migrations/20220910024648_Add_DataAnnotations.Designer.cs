@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorPageMovie.Data;
 
@@ -10,9 +11,10 @@ using RazorPageMovie.Data;
 namespace RazorPageMovie.Migrations
 {
     [DbContext(typeof(RazorPageMovieContext))]
-    partial class RazorPageMovieContextModelSnapshot : ModelSnapshot
+    [Migration("20220910024648_Add_DataAnnotations")]
+    partial class Add_DataAnnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
