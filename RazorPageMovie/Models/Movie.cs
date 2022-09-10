@@ -13,19 +13,19 @@ public class Movie
     public int ID { get; set; }
     
     // 对于字段而言，可以设置它的默认值
-    [StringLength(60, MinimumLength = 3)]
-    [Required]
+    [StringLength(60, MinimumLength = 3), Required]
     public string Title { get; set; } = string.Empty;
     
     // 这里使用到了 注解（Attribute） 标注这个字段的类型
     [Display(Name = "Release Date")]
-    [DataType(DataType.Date)]
+    // 展示格式在这里设置
+    [DisplayFormat(DataFormatString = "0:yyyy-MM-dd", ApplyFormatInEditMode = true)]
+    // 关于日期的数据校验，需要使用Range来校验参数
+    [Range(typeof(DateTime), "1/1/1966", "1/1/2020"), DataType(DataType.Date)]
     public DateTime ReleaseTime { get; set; }
     
     // 类型
-    [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
-    [Required]
-    [StringLength(30)]
+    [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$"), Required, StringLength(30)]
     public string Genre { get; set; } = string.Empty;
     
     // 价格
